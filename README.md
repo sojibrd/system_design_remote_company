@@ -43,7 +43,7 @@
 
 ### তথ্য বদলানোর ক্রম
 
-`brainstorming/ASSUMPTIONS.md` → `brainstorming/` (`system-design-*.md`, `crack-remote-company-roadmap.md`) → `switch_in_6_month_remote_company/docs/` → এই ফোল্ডার।
+`brainstorming/ASSUMPTIONS.md` → `brainstorming/` (`system-design.md`, `which-market.md`) → `switch_in_6_month_remote_company/docs/` → এই ফোল্ডার।
 
 ### ব্লক ফাইলের ছাঁচ
 

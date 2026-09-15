@@ -15,7 +15,7 @@
 ## সত্যের উৎস
 
 1. `brainstorming/ASSUMPTIONS.md`
-2. `brainstorming/` — `system-design-how-many-paths.md`, `system-design-what-to-ignore-for-remote.md`, `crack-remote-company-roadmap.md`, `after-getting-response/04-technical-rounds.md`
+2. `brainstorming/` — `system-design.md` (তিন পথ · রিমোটে কী উপেক্ষা), `which-market.md` (রিমোট কোম্পানি), `application-to-offer.md` (ধাপ ৪ — কারিগরি রাউন্ড)
 3. `switch_in_6_month_remote_company/` — ঐ plan-এর দিন ০৭৮–১৩৩-এর সোম–শুক্রের ৩০′-এর ঘর এই সাইটের দিন ০০১–০৫৬
 4. এই ফোল্ডার — `docs/`
 

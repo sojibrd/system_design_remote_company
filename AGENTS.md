@@ -1,6 +1,6 @@
 # system_design_*_company — Agent Instructions
 
-`brainstorming/system-design-how-many-paths.md`-এর তিন পথের একটা (`system_design_local_company` · `_remote_company` · `_global_company`) — দিনভিত্তিক plan, `learning_to_learn`-এর নীতি, chassis `dsa_prep_*` থেকে। এই ফাইল তিন repo-তে হুবহু এক।
+`brainstorming/system-design.md`-এর তিন পথের একটা (`system_design_local_company` · `_remote_company` · `_global_company`) — দিনভিত্তিক plan, `learning_to_learn`-এর নীতি, chassis `dsa_prep_*` থেকে। এই ফাইল তিন repo-তে হুবহু এক।
 
 - **তিনটা পথই স্বাধীন** (ব্যবহারকারীর সিদ্ধান্ত ২০২৬-০৯-১৫) — প্রতিটা শূন্য থেকে, আগের পথ শর্ত নয়। DSA-র মতো কেন্দ্রীভূত বৃত্ত নয়: পথ বদলালে **কাজের ধরন** বদলায় — লোকালে নিজের প্রজেক্ট ব্যাখ্যা, রিমোটে ইংরেজিতে লিখে বোঝানো, গ্লোবালে ঘড়ির নিচে মুখে।
 - **লোকাল** ২৮ দিন (= লোকাল plan-এর দিন ০৫০–০৭৭), সাতটা ডক (০৯, ১১–১৫, ১৮) নিজের প্রজেক্ট দিয়ে, `srdtube`-এর ছয় সেকশনের design doc, চারটা লোকাল প্রশ্ন মুখে, simulation শুধু functional · **রিমোট** ৫৬ দিন (= দিন ০৭৮–১৩৩), দশটা ডক (+০৪, ০৭, ১৬), functional + reliable, frontend system design-এর তিনটা UI, তিনটা ইংরেজি লেখা (`srdtube`-এর design doc আর frontend design note প্রকাশিত, কোম্পানির ফিচারের note নিজের কাছে) · **গ্লোবাল** ১৬৮ দিন (= দিন ০০৮–১৭৫), আট সিস্টেম লেখা আর ৪৫′-এ মুখে, ছয়টা UI — কাজ গ্লোবাল plan থেকে হুবহু সরানো; plan-এ design-এর ঘর নেই এমন দিন সাইটে "বিরতি" (কাজ ছাড়া দিন)।
