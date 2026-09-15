@@ -14,7 +14,7 @@
 
 ## সত্যের উৎস
 
-1. `legacy_and_wisdom/docs/ASSUMPTIONS.md`
+1. `brainstorming/ASSUMPTIONS.md`
 2. `brainstorming/` — `system-design-how-many-paths.md`, `system-design-what-to-ignore-for-remote.md`, `crack-remote-company-roadmap.md`, `after-getting-response/04-technical-rounds.md`
 3. `switch_remote_company_in_6_month/` — ঐ plan-এর দিন ০৭৮–১৩৩-এর সোম–শুক্রের ৩০′-এর ঘর এই সাইটের দিন ০০১–০৫৬
 4. এই ফোল্ডার — `docs/`
