@@ -1,0 +1,121 @@
+# নিয়ম — রিমোট কোম্পানির system design
+
+*৫৬ দিন · দশটা ডক · frontend system design · ইংরেজিতে তিনটা design doc · তারপর থামা*
+
+## লক্ষ্য
+
+> **৫৬ দিনে দশটা ডকের সিদ্ধান্ত ইংরেজিতে লেখা, তিনটা UI-র frontend system design, আর তিনটা ইংরেজি design doc প্রকাশ — তারপর নতুন কিছু নয়।**
+
+রিমোট কোম্পানিতে system design সাধারণত আলাদা ৪৫ মিনিটের রাউন্ড নয়। দুই রূপে আসে:
+- **লিখিত** — take-home-এর সাথে "কেন এই সিদ্ধান্ত" বা ছোট design note। পাঁচ টাইমজোনের টিম সিদ্ধান্ত লিখেই রাখে।
+- **আলোচনামূলক** — *"We need to build this feature — how would you approach it?"* — **ওদের আসল প্রোডাক্ট** নিয়ে, কল্পনার Twitter নয়।
+
+তাই এখানে পরীক্ষা **লিখে বোঝানো** আর **frontend-এর সিদ্ধান্তের কারণ বলা।** লোকালে design doc ছিল প্রস্তুতি; রিমোটে ওটাই জমা দেওয়ার মতো কাজের নমুনা। 🧠 (Skill stacking · Pareto)
+
+## সত্যের উৎস
+
+1. `legacy_and_wisdom/docs/ASSUMPTIONS.md`
+2. `brainstorming/` — `system-design-how-many-paths.md`, `system-design-what-to-ignore-for-remote.md`, `crack-remote-company-roadmap.md`, `after-getting-response/04-technical-rounds.md`
+3. `switch_remote_company_in_6_month/` — ঐ plan-এর দিন ০৭৮–১৩৩-এর সোম–শুক্রের ৩০′-এর ঘর এই সাইটের দিন ০০১–০৫৬
+4. এই ফোল্ডার — `docs/`
+
+**স্বাধীন পথ।** আগে অন্য কোনো system design সাইট শেষ করতে হয় না — এই সাইট ছয় সেকশনের ছাঁচ থেকেই শুরু করে। [লোকাল](https://sojibrd.github.io/system_design_local_company/)-এর সাতটা ডক এখানকার দশটার ভেতরে, কিন্তু কাজের ধরন আলাদা: সব লেখা ইংরেজিতে, আর frontend system design নতুন — ওটা `system_design`-এর ২৫টা ডকের কোথাও নেই।
+
+**কখন:** শুরুর তারিখ ⏳ আপনার উত্তর বাকি — সাইট প্রথমবার খুললে জিজ্ঞেস করবে। plan-এর সাথে চালালে = plan-এর দিন ০৭৮-এর তারিখ।
+
+## কীভাবে পড়বেন
+
+- ৫৬ দিন, ৪টা ব্লক। প্রতিটা দিনে এক-দুটো `- [ ]` কাজ, আর শেষে **দিন শেষে** প্রশ্ন — হ্যাঁ/না।
+- `২০′` = মিনিট।
+- `(ডক ১৩)` = `system_design` সাইটের ডক; `(sim url-shortener · reliable)` = simulator-এর সিস্টেম আর লেভেল। কাজের নিচে লিংক।
+- 🧠 (নাম) = কাজটা `learning_to_learn`-এর কোন নীতি থেকে; chip চাপলে এক লাইনে কেন।
+- 🔁 = এই কাজ শেষ করার দিন থেকে **১, ৩, ৭, ২১ দিন পরে** না দেখে আবার।
+- ⚑ = মাইলফলক। নির্ধারিত দিনে না হলে শেষ না হওয়া পর্যন্ত হোমে থাকে।
+- ⏳ = আপনার উত্তর বাকি।
+
+## "আজ" মানে ক্যালেন্ডারের আজ
+
+ফাইলে শুধু দিনের নম্বর, দিন ০০১ = সোমবার ধরে লেখা। শুরুর তারিখ সাইটে একবার বসান; তারপর plan পেছায় না। বাদ পড়া দিন ফেরে না, শুধু ⚑ জমে থাকে। ঘুম কেটে পূরণ নয়। 🧠 (Sleep)
+
+---
+
+## সপ্তাহের ছন্দ
+
+রিমোট plan-এর সপ্তাহে ৭ ঘণ্টার মধ্যেই — এই সাইট DSA শেষে খালি হওয়া **সোম–শুক্রের ৩০′-এর ঘর**।
+
+| দিন | এই সাইটের কাজ | সময় |
+|---|---|---|
+| সোম–শুক্র | আগে DSA আর plan-এর আজকের ঝালাই (থাকলে, ১৫′-এর মধ্যে) · তারপর এই সাইটের একটা কাজ | ৩০′-এর ভেতরে — কাজ ~২০′ |
+| শনি | সপ্তাহের লেখা না দেখে — এক লাইন করে, ইংরেজিতে জোরে | ১৫′ |
+| রবি | সপ্তাহের হিসাব — কোথায় আটকালেন, পরের সপ্তাহের একটা দুর্বলতা | ১০′ |
+
+শনি-রবির হালকা কাজ plan-এ আলাদা ঘর পায় না; সময় পেলে করুন। plan-এর দিন ০৭৮-এ ঘর ছোট (তালিকা ভরার দিন), দিন ১০৩ হালকা আর দিন ১০৪ mock-এর — ঐ দিনগুলোয় এখানে কাজ কম বা নেই। 🧠 (System vs goal · It pays to be not busy)
+
+---
+
+## বসা — ২০′
+
+1. **বসার আগে এক লাইন:** আজ কোন দুর্বলতায় কাজ — আগের রবিবারের হিসাব থেকে। 🧠 (Deliberate practice revisited)
+2. **টাইমার,** ফোন অন্য ঘরে, AI বন্ধ। 🧠 (Have an endpoint · Deep work)
+3. **সব লেখা ইংরেজিতে, বুলেটে।** বাংলায় ভেবে অনুবাদ করলে লেখায় সেটা ধরা পড়ে; ছোট বাক্যে সরাসরি ইংরেজিতে। 🧠 (Skill stacking)
+4. **ডকের দিনে:** দরকারি অংশটুকু পড়ে **বন্ধ** — তারপর নিজের কাজের একটা সিদ্ধান্ত, ADR-এর তিন লাইনে: *Context · Decision · Consequence*। 🧠 (Active learning · Test yourself)
+5. **সিদ্ধান্তের কারণ, গভীরতা নয়।** রিমোট টিম দেখতে চায় কেন এটা বাছলেন আর কী বাদ দিলেন — কোন tool-এর নাম মুখস্থ, সেটা নয়। 🧠 (Concepts vs Facts)
+6. **টিক দিন** — ঝালাই নিজে থেকে আসবে।
+
+## frontend system design — ছয় ধাপ
+
+*"Design the UI for X"* এলে এই ক্রমে:
+
+1. **চাহিদা** — কী দেখায়, কী করা যায়, কোন ডিভাইসে, কত ডেটা
+2. **component** — গাছ, কোনটা কী পায়
+3. **state কোথায়** — component, store/service, নাকি URL
+4. **ডেটা আনা ও cache** — কখন আনে, পাতা ধরে, বাসি কখন, দুবার request ঠেকানো
+5. **optimistic update লাগে কি** — সঙ্গে সঙ্গে দেখানো আর ব্যর্থ হলে ফেরানো
+6. **performance আর accessibility** — লম্বা তালিকা, keyboard, screen reader
+
+আঁকার চেয়ে বেশি জরুরি প্রতিটা ধাপের **কারণ** বলা।
+
+## design doc — ছয় সেকশন
+
+`system_design/designs/`-এর ছাঁচ: **What I built → Scale → Decisions → What I deliberately left out → Architecture → Where it breaks.** শেষে রিমোট আলোচনার তিন প্রশ্নের উত্তর: *"Why this and not the alternative?" · "What did you deliberately leave out?" · "Availability or consistency here — which, and why?"*
+
+## ঝালাই
+
+- 🔁 কাজে টিক দিলে ঐ **আসল তারিখ** থেকে ১ → ৩ → ৭ → ২১ দিন। 🧠 (Spaced repetition revisited)
+- **ঝালাইয়ের বসা:** কাজের লেখা দেখে, নোট বন্ধ — ইংরেজিতে এক মিনিট জোরে। ১৫′-এর বেশি নয়।
+- দুটো উত্তর: **মনে ছিল** (পরের ধাপে) বা **আটকে গেছি** (আবার ১ দিনে)। আটকে যাওয়া শাস্তি নয়, তথ্য।
+
+---
+
+## `learning_to_learn` — কোনটা কোথায়
+
+| ডক | এই সাইটে যেভাবে |
+|---|---|
+| **Principle** | Pareto — দশটা ডক, তিনটা doc। Learning vs Winning — ইংরেজিতে লিখতে আটকানো। The obstacle — frontend design, যা ডকে নেই। The dip — ব্লক ২, সপ্তাহ ৪। Compound learning — দিনে একটা সিদ্ধান্ত। Failures don't count, It's all in the frame, Choice vs Chore — রবিবারের হিসাব। Skill stacking — design + লেখা + ইংরেজি। Productivity time, Self learning paradigm, What is success?, Happiness factors — ব্লক আর থামার দিনে। |
+| **Lies** | 10,000 hours rule — তিনটা doc-এ থামা। You can avoid risk — "আরও পড়ে তারপর আবেদন" নয়। Trust this one person — কারও ডিজাইন মুখস্থ নয়। Follow your passion — লেখা ভালো লাগার অপেক্ষা নয়। |
+| **Pillars** | Everything is a game — ছয় ধাপ। Feynman — ADR-এর তিন লাইন। Trunk based knowledge — ছয় সেকশন। Efficiency trumps grit — টাইমারে থামা। |
+| **Science** | Focus vs Diffuse, Be bored, Sleep, Feedback, Procrastination, Motivation, Long and short memory, Active learning, Goals, It pays to be not busy, Chunking, Deliberate practice, Spaced repetition, Energy saving with habits, Be adventurous, Have an endpoint, Brain training — প্রতিটা দিনের 🧠 chip-এ। |
+| **Techniques** | Interleaving — এলোমেলো UI। Parkinson's law, Pomodoro, Deep work — টাইমার। Test yourself — doc বন্ধ। Method of loci — ছয় ধাপের ঘর। Einstellung, Chunk the subject, Create a roadmap, Deliberate practice revisited, Spaced repetition revisited, Community, Habits revisited, System vs goal, The power of senses, Pareto principle revisited, Stakes & Rewards, Concepts vs Facts, The first 20 hours — দিনের কাজে। |
+
+---
+
+## যা উপেক্ষা করবেন
+
+- **ডক ১৯–২৫ আর ০২–০৬-এর তত্ত্ব** — ব্যতিক্রম **ডক ০৪**, কারণ বাস্তব ফিচার আলোচনায় availability বনাম consistency সত্যিই আসে।
+- **কাল্পনিক বড় সিস্টেম** — Twitter, Uber। আলোচনা হয় ওদের প্রোডাক্ট নিয়ে।
+- **মুখস্থ সংখ্যা** — "একটা server সেকেন্ডে কত request নেয়" FAANG-এর জিনিস; রিমোটে সংখ্যা লাগলে জিজ্ঞেস করে নেওয়াই স্বাভাবিক।
+- **simulation-এর scalable লেভেল** — রিমোট প্রোডাক্ট টিমের বেশিরভাগ কাজ ঐ স্কেলে পৌঁছায় না; functional আর reliable রাখুন।
+
+## যা করবেন না
+
+- **তিনটা doc-এর পরে নতুন নয়।** 🧠 (10,000 hours rule)
+- **বাংলায় লিখে পরে অনুবাদ নয়।**
+- **নিখুঁত হওয়ার অপেক্ষায় প্রকাশ আটকে রাখা নয়।** প্রকাশিত doc-ই রেফারেলের বিকল্প। 🧠 (Have an endpoint)
+- **system design শেষের অপেক্ষায় আবেদন আটকে রাখা নয়।**
+- **এই সাইটে নতুন ফিচার নয়।**
+
+## দিন ৫৬-এর পরে
+
+- রিমোট plan-এর সোম–শুক্রের ৩০′ = **আজকের ঝালাই** — এই সাইটের ঝালাই-তালিকাও তার অংশ।
+- plan-এর দিন ১৪০ আর ১৪৭-এ `srdtube`-এর doc মুখে, doc বন্ধ রেখে; আবেদনের চিঠিতে প্রকাশিত doc-এর লিংক।
+- গ্লোবালের পথ (`system_design_global_company`) আলাদা, স্বাধীন — সেখানে কাজ ঘড়ির নিচে মুখে, আট সিস্টেম।
