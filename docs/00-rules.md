@@ -16,7 +16,7 @@
 
 1. `brainstorming/ASSUMPTIONS.md`
 2. `brainstorming/` — `system-design-how-many-paths.md`, `system-design-what-to-ignore-for-remote.md`, `crack-remote-company-roadmap.md`, `after-getting-response/04-technical-rounds.md`
-3. `switch_remote_company_in_6_month/` — ঐ plan-এর দিন ০৭৮–১৩৩-এর সোম–শুক্রের ৩০′-এর ঘর এই সাইটের দিন ০০১–০৫৬
+3. `switch_in_6_month_remote_company/` — ঐ plan-এর দিন ০৭৮–১৩৩-এর সোম–শুক্রের ৩০′-এর ঘর এই সাইটের দিন ০০১–০৫৬
 4. এই ফোল্ডার — `docs/`
 
 **স্বাধীন পথ।** আগে অন্য কোনো system design সাইট শেষ করতে হয় না — এই সাইট ছয় সেকশনের ছাঁচ থেকেই শুরু করে। [লোকাল](https://sojibrd.github.io/system_design_local_company/)-এর সাতটা ডক এখানকার দশটার ভেতরে, কিন্তু কাজের ধরন আলাদা: সব লেখা ইংরেজিতে, আর frontend system design নতুন — ওটা `system_design`-এর ২৫টা ডকের কোথাও নেই।

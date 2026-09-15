@@ -2,7 +2,7 @@
 
 বিদেশি রিমোট কোম্পানির design রাউন্ডের প্রস্তুতি — যেটা আলাদা ৪৫ মিনিটের রাউন্ড নয়, আসে **লিখিত** (take-home-এর সাথে design note) আর **আলোচনামূলক** (*"how would you build this feature of ours?"*) রূপে। ৫৬ দিনে: দশটা ডকের সিদ্ধান্ত ইংরেজিতে, দুটো simulation-এর functional আর reliable লেভেল, তিনটা UI-র frontend system design, আর তিনটা ইংরেজি লেখা — `srdtube`-এর design doc আর frontend design note প্রকাশিত, একটা কোম্পানির ফিচারের note নিজের কাছে। দিনে একটা ছোট কাজ, ঝালাইসহ; তারপর থামা।
 
-এটা **স্বাধীন পথ** — আগে অন্য কোনো system design সাইট লাগে না। [লোকাল](https://sojibrd.github.io/system_design_local_company/) আর [গ্লোবাল](https://sojibrd.github.io/system_design_global_company/) আলাদা সাইট; এখানে পথ বদলালে কাজের ধরনই বদলায়, পরিমাণ নয়। `switch_remote_company_in_6_month`-এর দিন ০৭৮–১৩৩-এ DSA শেষে যে সোম–শুক্রের ৩০′-এর ঘর খালি হয়, এই সাইট সেই ঘরের কাজ (ব্যবহারকারীর সিদ্ধান্ত ২০২৬-০৯-১৫)। শুরুর তারিখ ⏳, সাইট প্রথমবার খুললে জিজ্ঞেস করে।
+এটা **স্বাধীন পথ** — আগে অন্য কোনো system design সাইট লাগে না। [লোকাল](https://sojibrd.github.io/system_design_local_company/) আর [গ্লোবাল](https://sojibrd.github.io/system_design_global_company/) আলাদা সাইট; এখানে পথ বদলালে কাজের ধরনই বদলায়, পরিমাণ নয়। `switch_in_6_month_remote_company`-এর দিন ০৭৮–১৩৩-এ DSA শেষে যে সোম–শুক্রের ৩০′-এর ঘর খালি হয়, এই সাইট সেই ঘরের কাজ (ব্যবহারকারীর সিদ্ধান্ত ২০২৬-০৯-১৫)। শুরুর তারিখ ⏳, সাইট প্রথমবার খুললে জিজ্ঞেস করে।
 
 **লাইভ:** https://sojibrd.github.io/system_design_remote_company/
 
@@ -41,7 +41,7 @@
 
 ### তথ্য বদলানোর ক্রম
 
-`brainstorming/ASSUMPTIONS.md` → `brainstorming/` (`system-design-*.md`, `crack-remote-company-roadmap.md`) → `switch_remote_company_in_6_month/docs/` → এই ফোল্ডার।
+`brainstorming/ASSUMPTIONS.md` → `brainstorming/` (`system-design-*.md`, `crack-remote-company-roadmap.md`) → `switch_in_6_month_remote_company/docs/` → এই ফোল্ডার।
 
 ### ব্লক ফাইলের ছাঁচ
 
