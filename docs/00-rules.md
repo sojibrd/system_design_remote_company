@@ -1,10 +1,10 @@
 # নিয়ম — রিমোট কোম্পানির system design
 
-*৫৬ দিন · দশটা ডক · frontend system design · ইংরেজিতে তিনটা design doc · তারপর থামা*
+*৫৬ দিন · দশটা ডক · frontend system design · ইংরেজিতে তিনটা লেখা, দুটো প্রকাশিত · তারপর থামা*
 
 ## লক্ষ্য
 
-> **৫৬ দিনে দশটা ডকের সিদ্ধান্ত ইংরেজিতে লেখা, তিনটা UI-র frontend system design, আর তিনটা ইংরেজি design doc প্রকাশ — তারপর নতুন কিছু নয়।**
+> **৫৬ দিনে দশটা ডকের সিদ্ধান্ত ইংরেজিতে লেখা, তিনটা UI-র frontend system design, আর তিনটা ইংরেজি লেখা — `srdtube`-এর design doc আর frontend design note প্রকাশিত, একটা কোম্পানির ফিচারের note নিজের কাছে — তারপর নতুন কিছু নয়।**
 
 রিমোট কোম্পানিতে system design সাধারণত আলাদা ৪৫ মিনিটের রাউন্ড নয়। দুই রূপে আসে:
 - **লিখিত** — take-home-এর সাথে "কেন এই সিদ্ধান্ত" বা ছোট design note। পাঁচ টাইমজোনের টিম সিদ্ধান্ত লিখেই রাখে।
@@ -91,8 +91,8 @@
 
 | ডক | এই সাইটে যেভাবে |
 |---|---|
-| **Principle** | Pareto — দশটা ডক, তিনটা doc। Learning vs Winning — ইংরেজিতে লিখতে আটকানো। The obstacle — frontend design, যা ডকে নেই। The dip — ব্লক ২, সপ্তাহ ৪। Compound learning — দিনে একটা সিদ্ধান্ত। Failures don't count, It's all in the frame, Choice vs Chore — রবিবারের হিসাব। Skill stacking — design + লেখা + ইংরেজি। Productivity time, Self learning paradigm, What is success?, Happiness factors — ব্লক আর থামার দিনে। |
-| **Lies** | 10,000 hours rule — তিনটা doc-এ থামা। You can avoid risk — "আরও পড়ে তারপর আবেদন" নয়। Trust this one person — কারও ডিজাইন মুখস্থ নয়। Follow your passion — লেখা ভালো লাগার অপেক্ষা নয়। |
+| **Principle** | Pareto — দশটা ডক, তিনটা লেখা। Learning vs Winning — ইংরেজিতে লিখতে আটকানো। The obstacle — frontend design, যা ডকে নেই। The dip — ব্লক ২, সপ্তাহ ৪। Compound learning — দিনে একটা সিদ্ধান্ত। Failures don't count, It's all in the frame, Choice vs Chore — রবিবারের হিসাব। Skill stacking — design + লেখা + ইংরেজি। Productivity time, Self learning paradigm, What is success?, Happiness factors — ব্লক আর থামার দিনে। |
+| **Lies** | 10,000 hours rule — তিনটা লেখায় থামা। You can avoid risk — "আরও পড়ে তারপর আবেদন" নয়। Trust this one person — কারও ডিজাইন মুখস্থ নয়। Follow your passion — লেখা ভালো লাগার অপেক্ষা নয়। |
 | **Pillars** | Everything is a game — ছয় ধাপ। Feynman — ADR-এর তিন লাইন। Trunk based knowledge — ছয় সেকশন। Efficiency trumps grit — টাইমারে থামা। |
 | **Science** | Focus vs Diffuse, Be bored, Sleep, Feedback, Procrastination, Motivation, Long and short memory, Active learning, Goals, It pays to be not busy, Chunking, Deliberate practice, Spaced repetition, Energy saving with habits, Be adventurous, Have an endpoint, Brain training — প্রতিটা দিনের 🧠 chip-এ। |
 | **Techniques** | Interleaving — এলোমেলো UI। Parkinson's law, Pomodoro, Deep work — টাইমার। Test yourself — doc বন্ধ। Method of loci — ছয় ধাপের ঘর। Einstellung, Chunk the subject, Create a roadmap, Deliberate practice revisited, Spaced repetition revisited, Community, Habits revisited, System vs goal, The power of senses, Pareto principle revisited, Stakes & Rewards, Concepts vs Facts, The first 20 hours — দিনের কাজে। |
@@ -108,7 +108,7 @@
 
 ## যা করবেন না
 
-- **তিনটা doc-এর পরে নতুন নয়।** 🧠 (10,000 hours rule)
+- **তিনটা লেখার পরে নতুন নয়।** 🧠 (10,000 hours rule)
 - **বাংলায় লিখে পরে অনুবাদ নয়।**
 - **নিখুঁত হওয়ার অপেক্ষায় প্রকাশ আটকে রাখা নয়।** প্রকাশিত doc-ই রেফারেলের বিকল্প। 🧠 (Have an endpoint)
 - **system design শেষের অপেক্ষায় আবেদন আটকে রাখা নয়।**

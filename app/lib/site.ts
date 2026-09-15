@@ -16,7 +16,7 @@ export const SITE: {
   short: "রিমোট system design",
   emoji: "📝",
   description:
-    "বিদেশি রিমোট কোম্পানির লিখিত আর আলোচনামূলক design রাউন্ডের জন্য — দশটা ডক, frontend system design আর ইংরেজিতে তিনটা design doc, ৫৬ দিনে, learning to learn-এর নীতিতে।",
+    "বিদেশি রিমোট কোম্পানির লিখিত আর আলোচনামূলক design রাউন্ডের জন্য — দশটা ডক, frontend system design আর ইংরেজিতে তিনটা লেখা (দুটো প্রকাশিত), ৫৬ দিনে, learning to learn-এর নীতিতে।",
   /** localStorage key-এর prefix — তিন পথের progress আলাদা থাকে */
   storagePrefix: "rsd",
   /** এই পথ কবে শুরু হবে জানা নেই — প্রস্তাব নেই, আজকের তারিখ দেখায় */
