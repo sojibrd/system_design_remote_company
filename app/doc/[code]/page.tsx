@@ -3,38 +3,38 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Markdown from "../../components/Markdown";
 import Pager from "../../components/Pager";
-import { ArrowUpRight } from "../../components/icons";
+import { getGuideDocs } from "../../lib/guide";
 import { getDocUses } from "../../lib/plan";
-import { DOCS, docHref } from "../../lib/sources";
 
 type Params = { code: string };
 
 /** ২৫টাই — plan-এ না থাকলেও পাতা থাকে, যাতে লিংক কখনো ভাঙে না */
 export function generateStaticParams(): Params[] {
-  return DOCS.map((doc) => ({ code: doc.code }));
+  return getGuideDocs().map((doc) => ({ code: doc.code }));
 }
 
 export const dynamicParams = false;
 
 export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
   const { code } = await params;
-  const doc = DOCS.find((item) => item.code === code);
+  const doc = getGuideDocs().find((item) => item.code === code);
   return { title: doc ? `ডক ${doc.code} · ${doc.title}` : "ডক" };
 }
 
 /**
- * একটা ডক: এই পথে কোন দিনের কোন কাজে আসে, আর `system_design` সাইটে পুরোটা।
- * ডকের লেখা এখানে কপি নয় — এক জিনিস দুই জায়গায় থাকলে আলাদা হয়ে যায়।
+ * একটা ডক: এই পথে কোন দিনের কোন কাজে আসে, তারপর `guide/`-এর লেখা হুবহু। ডক পড়া
+ * ইনপুট — কাজ হলো পড়ে বন্ধ করে নিজের প্রজেক্ট দিয়ে লেখা বা বলা।
  */
 export default async function DocPage({ params }: { params: Promise<Params> }) {
   const { code } = await params;
-  const index = DOCS.findIndex((doc) => doc.code === code);
+  const docs = getGuideDocs();
+  const index = docs.findIndex((doc) => doc.code === code);
   if (index === -1) notFound();
 
-  const doc = DOCS[index];
+  const doc = docs[index];
   const uses = getDocUses()[doc.code] ?? [];
-  const prev = DOCS[index - 1];
-  const next = DOCS[index + 1];
+  const prev = docs[index - 1];
+  const next = docs[index + 1];
 
   return (
     <>
@@ -47,10 +47,6 @@ export default async function DocPage({ params }: { params: Promise<Params> }) {
           <span>{doc.code}</span>
         </div>
         <h1 className="t-title text-2xl sm:text-3xl">{doc.title}</h1>
-        <a href={docHref(doc)} target="_blank" rel="noreferrer" className="t-accent inline-flex items-center gap-1 text-sm">
-          system_design-এ পুরো ডক
-          <ArrowUpRight />
-        </a>
       </header>
 
       <section className="surface-panel flex flex-col gap-4 p-4 sm:p-6">
@@ -74,6 +70,10 @@ export default async function DocPage({ params }: { params: Promise<Params> }) {
           </div>
         )}
       </section>
+
+      <article className="surface-panel p-4 sm:p-6 md:p-8">
+        <Markdown>{doc.body}</Markdown>
+      </article>
 
       <Pager
         label="ডক"

@@ -5,15 +5,14 @@ import type { Task } from "../lib/plan";
 import { todayISO, toBnDigits } from "../lib/dates";
 import Markdown from "./Markdown";
 import PrincipleChips from "./PrincipleChips";
-import { ArrowUpRight } from "./icons";
 import { useMounted, useProgress } from "../hooks/useProgress";
 
 /**
  * একটা কাজ: নেটিভ checkbox (`.check`), টিক দিলে লেখা কাটা, কবে শেষ হলো তার তারিখ,
  * আর মিনিট / ⚑ / 🔁 / 🧠 chip।
  *
- * কাজে `(ডক ১৩)` বা `(sim … · …)` থাকলে `system_design` সাইটের ঐ ডক বা simulator-এর
- * লিংক। লেখা এখানে নয় — design doc-এর ফাইল `system_design/designs/`-এ।
+ * কাজে `(ডক ১৩)` বা `(sim … · …)` থাকলে এই সাইটের ঐ ডক বা simulator-এর লিংক। লেখা
+ * এখানে নয় — design doc থাকে প্রজেক্টের নিজের repo-তে (`srdtube`-এর `DESIGN.md`)।
  *
  * `from` দিলে কাজটা অন্য দিনের — হোমের জমে থাকা মাইলফলকে দিনের লিংক দেখায়।
  */
@@ -55,29 +54,18 @@ export default function TaskItem({ task, from }: { task: Task; from?: { code: st
           )}
           {task.sources.map((source) =>
             source.kind === "doc" ? (
-              <a
-                key={`doc-${source.code}`}
-                href={source.href}
-                target="_blank"
-                rel="noreferrer"
-                className="chip chip--accent"
-                title="system_design সাইটে ঐ ডক"
-              >
+              <Link key={`doc-${source.code}`} href={source.href} className="chip chip--accent" title="ঐ ডক, এই সাইটেই">
                 ডক {toBnDigits(source.code)} · {source.title}
-                <ArrowUpRight size={10} />
-              </a>
+              </Link>
             ) : (
-              <a
+              <Link
                 key={`sim-${source.id}-${source.level}`}
                 href={source.href}
-                target="_blank"
-                rel="noreferrer"
                 className="chip chip--accent"
                 title="simulator-এ সিস্টেমটা খুলে উপরের tab থেকে লেভেল বাছুন"
               >
                 sim · {source.name} · {source.level}
-                <ArrowUpRight size={10} />
-              </a>
+              </Link>
             ),
           )}
           {checked && (

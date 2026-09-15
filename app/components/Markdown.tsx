@@ -22,6 +22,10 @@ function headingId(children: React.ReactNode): string | undefined {
  */
 function toSiteHref(href: string): string {
   if (/^([a-z]+:|#|\/)/i.test(href)) return href;
+  /* `guide/`-এর ডক একে অন্যকে ফাইলনামে ডাকে (`13-caching.md`) — এই সাইটের ডকের পাতায় */
+  const guide = /^(?:\.\/)?(\d\d)-[a-z0-9-]+\.md(#.*)?$/i.exec(href);
+  if (guide) return `/doc/${guide[1]}/${guide[2] ?? ""}`;
+  if (/^(?:\.\/)?README\.md$/i.test(href)) return "/docs/";
   const project = /^(?:\.\.\/)+([a-z0-9_-]+)\/docs\/(.+)\.md$/i.exec(href);
   if (project) return `https://sojibrd.github.io/${project[1]}/${project[2]}/`;
   return href;

@@ -187,6 +187,65 @@
   --t-callout-radius: 4px;
   --t-callout-shadow: var(--bezel-shadow);
 
+  /* --- Unit: a rack-mounted instrument --------------------------------- */
+  --t-unit-bg: var(--raised);
+  --t-unit-border: var(--bezel);
+  --t-unit-border-width: 1px;
+  --t-unit-radius: 6px;
+  --t-unit-shadow: var(--bezel-shadow);
+  --t-unit-selected-border: var(--bezel-hi);
+  --t-unit-active-bg: var(--raised);
+  --t-unit-active-border: var(--amber-dim);
+  --t-unit-active-border-width: 1px;
+  --t-unit-active-shadow:
+    inset 0 1px 0 0 rgb(255 236 205 / 0.12),
+    0 0 0 1px rgb(255 176 32 / 0.6),
+    0 0 18px -4px rgb(255 176 32 / 0.7);
+  --t-unit-active-animation: unitLive 1.6s var(--t-ease) infinite;
+
+  /* --- Ornament: four bezel screws ------------------------------------- */
+  --t-ornament-display: block;
+  --t-ornament-size: 4px;
+  --t-ornament-inset: 6px;
+  --t-ornament-radius: 9999px;
+  --t-ornament-fill: var(--chassis);
+  --t-ornament-color: transparent;
+  --t-ornament-stroke: 0;
+  --t-ornament-shadow: 0 0 0 1px rgb(95 82 69 / 0.7);
+
+  /* --- Lamps ----------------------------------------------------------- */
+  --t-lamp-size: 6px;
+  --t-lamp-radius: 9999px;
+  --t-lamp-off-fill: var(--readout-faint);
+  --t-lamp-glow: 0 0 8px 0 currentColor;
+  --t-lamp-blink-animation: lampBlink 1s var(--t-ease) infinite;
+
+  /* --- Terminals ------------------------------------------------------- */
+  --t-terminal-size: 8px;
+  --t-terminal-radius: 2px;
+  --t-terminal-fill: var(--bezel-strong);
+  --t-terminal-border: 1px solid var(--chassis);
+  --t-terminal-fill-hover: var(--amber);
+
+  /* --- Wires & packets ------------------------------------------------- */
+  /* Dormant is QUIET, not absent — a wire that is there but carrying nothing
+     is still part of the machine, so it stays solid and merely dim. Marching
+     dashes belong to the live state alone; that is what movement means here. */
+  --t-wire-dormant: var(--bezel-hi);
+  --t-wire-dormant-width: 1.5;
+  --t-wire-dormant-dash: none;
+  --t-wire-live-width: 2;
+  --t-wire-live-dash: 6, 6;
+  --t-wire-live-filter: none;
+  --t-wire-dash-speed: 0.8s;
+  --t-wire-corner-radius: 4;
+  --t-packet-size: 7;
+  --t-packet-rx: 50%;
+  --t-packet-halo-size: 14;
+  --t-packet-halo-rx: 50%;
+  --t-packet-halo-opacity: 0.28;
+  --t-edge-tag-bg: var(--raised);
+
   /* --- Tabs ------------------------------------------------------------ */
   --t-tab-bg: var(--panel);
   --t-tab-border: var(--bezel);
@@ -206,15 +265,45 @@
   --t-progress-current: var(--amber);
   --t-progress-current-height: 16px;
 
-  /* `.progress-mark[data-live]` blinks; the token name is kept as-is so this
-     file stays diffable against system_design's copy of the contract. */
-  --t-lamp-blink-animation: lampBlink 1s var(--t-ease) infinite;
+  /* --- Canvas ---------------------------------------------------------- */
+  --t-canvas-dot: var(--bezel);
+  --t-canvas-gap: 22;
+  --t-canvas-dot-size: 1;
+  /* The stage is a recess milled into the chassis, not an empty floor: light
+     falls off towards its edges and the rim casts a shadow inwards. Both sit
+     above the dot grid and below the units, so the grid reads as its floor. */
+  --t-canvas-vignette:
+    radial-gradient(125% 105% at 50% 42%, rgb(0 0 0 / 0) 42%, rgb(0 0 0 / 0.5) 100%);
+  --t-canvas-inset-shadow:
+    inset 0 2px 12px 0 rgb(0 0 0 / 0.8),
+    inset 0 0 0 1px rgb(0 0 0 / 0.55);
 
   /* --- Scrollbars ------------------------------------------------------ */
   --t-scrollbar-size: 8px;
   --t-scrollbar-track: var(--well);
   --t-scrollbar-thumb: var(--bezel-strong);
   --t-scrollbar-thumb-hover: var(--bezel-hi);
+
+  /* --- Unit spine: the category, worn on the edge of the card ---------- */
+  /* A 4px lamp beside a word is a detail you read one unit at a time. On a
+     thirteen-unit stage the grouping has to survive being glanced at, so the
+     category colour is painted down the whole left edge of the card instead. */
+  --t-unit-spine-width: 3px;
+  --t-unit-spine-inset: 0px;
+  /* Follows the card's own left corners — the spine is part of the bezel,
+     not a sticker laid over it. */
+  --t-unit-spine-radius: 5px 0 0 5px;
+  --t-unit-spine-opacity: 0.5;
+  --t-unit-spine-active-opacity: 1;
+
+  /* --- Category lamps -------------------------------------------------- */
+  --t-cat-client: #62a0dd;
+  --t-cat-compute: #a97ad6;
+  --t-cat-storage: #52c07a;
+  --t-cat-network: #45b0ad;
+  --t-cat-security: #ffb020;
+  --t-cat-queue: #d76aa0;
+  --t-cat-analytics: #e8873a;
 
   /* --- Doc prose: the long-form reading column ------------------------- */
   /* The roadmap is thousands of words of Bengali, so the reading column is
@@ -265,9 +354,33 @@
   --t-diagram-line: var(--bezel-hi);
   --t-diagram-text: var(--readout-soft);
 
+  /* --- Signal lamps ---------------------------------------------------- */
+  --t-signal-request: #62a0dd;
+  --t-signal-write: #a97ad6;
+  --t-signal-read: #45b0ad;
+  --t-signal-success: #52c07a;
+  --t-signal-cache: #ffb020;
+  --t-signal-event: #d76aa0;
+  --t-signal-error: #e05646;
+  --t-signal-meta: #8f8272;
 }
 
 /* Keyframes belong to the theme that references them. */
+@keyframes unitLive {
+  0%, 100% {
+    box-shadow:
+      inset 0 1px 0 0 rgb(255 236 205 / 0.12),
+      0 0 0 1px rgb(255 176 32 / 0.35),
+      0 0 14px -4px rgb(255 176 32 / 0.5);
+  }
+  50% {
+    box-shadow:
+      inset 0 1px 0 0 rgb(255 236 205 / 0.12),
+      0 0 0 1px rgb(255 176 32 / 0.75),
+      0 0 22px -4px rgb(255 176 32 / 0.9);
+  }
+}
+
 @keyframes lampBlink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.35; }

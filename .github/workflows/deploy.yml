@@ -27,11 +27,16 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
 
       - name: Install dependencies
         run: npm ci
+
+      # simulator-এর step যে node বা edge-কে "active" বলে, সেটা সত্যিই আছে কিনা —
+      # TypeScript ধরে না। build-এর আগে, যাতে ভাঙা ডেটা deploy না হয়।
+      - name: Check simulations
+        run: npm run check:simulations
 
       - name: Build and Export
         run: npm run build

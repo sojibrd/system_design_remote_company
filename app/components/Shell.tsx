@@ -43,6 +43,8 @@ export default function Shell({ blocks, children }: { blocks: IndexBlock[]; chil
   const todayDay = mounted && start ? days[currentDayIndex(days, start, todayISO())] : undefined;
 
   const path = pathname.endsWith("/") ? pathname : `${pathname}/`;
+  /* simulator নিজে pane-এর উচ্চতা ভরাট করে — ক্যানভাসের বাঁধা উচ্চতা লাগে, স্ক্রল নয় */
+  const fullBleed = path.startsWith("/simulation/");
   const dayOnPage = /^\/day\/([^/]+)\/$/.exec(path)?.[1];
   const blockOnPage = /^\/block\/([^/]+)\/$/.exec(path)?.[1];
   /* হোম আজকের দিনটাই দেখায়, তাই rail-এ ওটাই জ্বলে */
@@ -113,8 +115,12 @@ export default function Shell({ blocks, children }: { blocks: IndexBlock[]; chil
           <Sidebar {...sidebarProps} onCollapse={() => setCollapsed(true)} />
         </aside>
 
-        <main id="main-content" className="min-w-0 flex-1 overflow-y-auto">
-          <div className="mx-auto flex w-full max-w-5xl flex-col gap-6 p-4 pb-16 md:p-6 lg:p-8">{children}</div>
+        <main id="main-content" className={`min-w-0 flex-1 ${fullBleed ? "overflow-hidden" : "overflow-y-auto"}`}>
+          {fullBleed ? (
+            children
+          ) : (
+            <div className="mx-auto flex w-full max-w-5xl flex-col gap-6 p-4 pb-16 md:p-6 lg:p-8">{children}</div>
+          )}
         </main>
       </div>
 

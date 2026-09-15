@@ -12,6 +12,7 @@ const PAGES = [
   { href: "/", label: "আজ" },
   { href: "/review/", label: "ঝালাই" },
   { href: "/docs/", label: "ডক" },
+  { href: "/simulation/", label: "sim" },
   { href: "/rules/", label: "নিয়ম" },
 ];
 
@@ -97,7 +98,7 @@ export default function Sidebar({
       </div>
 
       <div className="flex shrink-0 flex-col gap-4 px-4 pt-4">
-        <nav className="grid grid-cols-4 gap-1" aria-label="পাতা">
+        <nav className="grid grid-cols-5 gap-1" aria-label="পাতা">
           {PAGES.map((page) => {
             const active = isPageActive(path, page.href);
             return (

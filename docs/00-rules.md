@@ -19,7 +19,7 @@
 3. `switch_in_6_month_remote_company/` — ঐ plan-এর দিন ০৭৮–১৩৩-এর সোম–শুক্রের ৩০′-এর ঘর এই সাইটের দিন ০০১–০৫৬
 4. এই ফোল্ডার — `docs/`
 
-**স্বাধীন পথ।** আগে অন্য কোনো system design সাইট শেষ করতে হয় না — এই সাইট ছয় সেকশনের ছাঁচ থেকেই শুরু করে। [লোকাল](https://sojibrd.github.io/system_design_local_company/)-এর সাতটা ডক এখানকার দশটার ভেতরে, কিন্তু কাজের ধরন আলাদা: সব লেখা ইংরেজিতে, আর frontend system design নতুন — ওটা `system_design`-এর ২৫টা ডকের কোথাও নেই।
+**স্বাধীন পথ।** আগে অন্য কোনো system design সাইট শেষ করতে হয় না — এই সাইট ছয় সেকশনের ছাঁচ থেকেই শুরু করে। [লোকাল](https://sojibrd.github.io/system_design_local_company/)-এর সাতটা ডক এখানকার দশটার ভেতরে, কিন্তু কাজের ধরন আলাদা: সব লেখা ইংরেজিতে, আর frontend system design নতুন — ওটা এই সাইটের ২৫টা ডকের কোথাও নেই।
 
 **কখন:** শুরুর তারিখ ⏳ আপনার উত্তর বাকি — সাইট প্রথমবার খুললে জিজ্ঞেস করবে। plan-এর সাথে চালালে = plan-এর দিন ০৭৮-এর তারিখ।
 
@@ -27,7 +27,7 @@
 
 - ৫৬ দিন, ৪টা ব্লক। প্রতিটা দিনে এক-দুটো `- [ ]` কাজ, আর শেষে **দিন শেষে** প্রশ্ন — হ্যাঁ/না।
 - `২০′` = মিনিট।
-- `(ডক ১৩)` = `system_design` সাইটের ডক; `(sim url-shortener · reliable)` = simulator-এর সিস্টেম আর লেভেল। কাজের নিচে লিংক।
+- `(ডক ১৩)` = এই সাইটের ডক; `(sim url-shortener · reliable)` = simulator-এর সিস্টেম আর লেভেল। কাজের নিচে লিংক।
 - 🧠 (নাম) = কাজটা `learning_to_learn`-এর কোন নীতি থেকে; chip চাপলে এক লাইনে কেন।
 - 🔁 = এই কাজ শেষ করার দিন থেকে **১, ৩, ৭, ২১ দিন পরে** না দেখে আবার।
 - ⚑ = মাইলফলক। নির্ধারিত দিনে না হলে শেষ না হওয়া পর্যন্ত হোমে থাকে।
@@ -77,7 +77,7 @@
 
 ## design doc — ছয় সেকশন
 
-`system_design/designs/`-এর ছাঁচ: **What I built → Scale → Decisions → What I deliberately left out → Architecture → Where it breaks.** শেষে রিমোট আলোচনার তিন প্রশ্নের উত্তর: *"Why this and not the alternative?" · "What did you deliberately leave out?" · "Availability or consistency here — which, and why?"*
+ছাঁচ: **What I built → Scale → Decisions → What I deliberately left out → Architecture → Where it breaks.** শেষে রিমোট আলোচনার তিন প্রশ্নের উত্তর: *"Why this and not the alternative?" · "What did you deliberately leave out?" · "Availability or consistency here — which, and why?"*
 
 ## ঝালাই
 

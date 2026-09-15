@@ -6,9 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "check:simulations": "node --experimental-strip-types --import ./scripts/register-ts-resolve.mjs scripts/check-simulations.mjs"
   },
   "dependencies": {
+    "@xyflow/react": "^12.11.6",
+    "lucide-react": "^1.46.0",
     "next": "16.3.5",
     "react": "19.2.8",
     "react-dom": "19.2.8",
@@ -24,5 +27,8 @@
     "eslint-config-next": "16.3.5",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=22.6"
   }
 }

@@ -10,7 +10,7 @@
 
 ### দিন ০৪৩ · What I built, Scale
 
-- [ ] ২০′ `srdtube`-এর design doc **ইংরেজিতে**, `system_design/designs/srdtube-small-static.md` (আগে থেকে থাকলে ওটাই ইংরেজিতে বদলান) — সেকশন ১–২: functional ৩ বুলেট, non-functional ২ বুলেট; scale: দিনে ১০,০০০ quota unit ÷ search-প্রতি ১০০ = দিনে ~১০০টা খোঁজা 🧠 (Active learning · Procrastination)
+- [ ] ২০′ `srdtube`-এর design doc **ইংরেজিতে**, `srdtube` repo-র `DESIGN.md`-এ (আগে থেকে থাকলে ওটাই ইংরেজিতে বদলান) — সেকশন ১–২: functional ৩ বুলেট, non-functional ২ বুলেট; scale: দিনে ১০,০০০ quota unit ÷ search-প্রতি ১০০ = দিনে ~১০০টা খোঁজা 🧠 (Active learning · Procrastination)
 
 > **দিন শেষে:** দুই সেকশন লেখা, সংখ্যাসহ?
 

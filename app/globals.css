@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "@xyflow/react/dist/style.css";
 
 /* ============================================================================
    ACTIVE THEME — this is the one line to change to re-skin the whole app.
@@ -390,6 +391,167 @@ body {
     color: var(--t-text-body);
   }
 
+  /* --- Unit: one architecture component on the canvas ------------------ */
+
+  .unit {
+    background-color: var(--t-unit-bg);
+    border: var(--t-unit-border-width) solid var(--t-unit-border);
+    border-radius: var(--t-unit-radius);
+    box-shadow: var(--t-unit-shadow);
+    transition: border-color 240ms var(--t-ease), box-shadow 240ms var(--t-ease);
+  }
+
+  .unit[data-selected="true"] {
+    border-color: var(--t-unit-selected-border);
+  }
+
+  .unit[data-active="true"] {
+    background-color: var(--t-unit-active-bg);
+    border-color: var(--t-unit-active-border);
+    border-width: var(--t-unit-active-border-width);
+    box-shadow: var(--t-unit-active-shadow);
+  }
+
+  .unit[data-active="true"][data-animated="true"] {
+    animation: var(--t-unit-active-animation);
+  }
+
+  /* The category, worn down the left edge. The unit only NAMES its category
+     (`data-category`); which colour that name gets — and whether the spine is
+     drawn at all — stays a theme decision. */
+  .unit::before {
+    content: "";
+    position: absolute;
+    left: var(--t-unit-spine-inset);
+    top: var(--t-unit-spine-inset);
+    bottom: var(--t-unit-spine-inset);
+    width: var(--t-unit-spine-width);
+    border-radius: var(--t-unit-spine-radius);
+    background-color: var(--unit-category, var(--t-text-faint));
+    opacity: var(--t-unit-spine-opacity);
+    transition: opacity 240ms var(--t-ease);
+    pointer-events: none;
+  }
+
+  .unit[data-active="true"]::before {
+    opacity: var(--t-unit-spine-active-opacity);
+  }
+
+  .unit[data-category="client"] { --unit-category: var(--t-cat-client); }
+  .unit[data-category="compute"] { --unit-category: var(--t-cat-compute); }
+  .unit[data-category="storage"] { --unit-category: var(--t-cat-storage); }
+  .unit[data-category="network"] { --unit-category: var(--t-cat-network); }
+  .unit[data-category="security"] { --unit-category: var(--t-cat-security); }
+  .unit[data-category="queue"] { --unit-category: var(--t-cat-queue); }
+  .unit[data-category="analytics"] { --unit-category: var(--t-cat-analytics); }
+
+  /* --- Backplane: the stage the units are mounted on ------------------- */
+
+  /* The canvas is the largest surface on screen, and left as a bare dot grid
+     it was the one place the theme said nothing. This is the layer that makes
+     it a recess in the chassis: it lies over the grid and under the diagram,
+     so it never touches legibility, and it takes no pointer events — the
+     canvas below it still pans and zooms. */
+  .backplane {
+    background-image: var(--t-canvas-vignette, none);
+    box-shadow: var(--t-canvas-inset-shadow, none);
+    pointer-events: none;
+  }
+
+  /* --- Ornament: the decoration that gives a unit its character -------- */
+
+  .ornament-mark {
+    position: absolute;
+    pointer-events: none;
+    display: var(--t-ornament-display);
+    width: var(--t-ornament-size);
+    height: var(--t-ornament-size);
+    border-radius: var(--t-ornament-radius);
+    background-color: var(--t-ornament-fill);
+    box-shadow: var(--t-ornament-shadow);
+    border-style: solid;
+    border-color: var(--t-ornament-color);
+    border-width: 0;
+  }
+
+  .ornament-mark[data-corner="tl"] {
+    left: var(--t-ornament-inset);
+    top: var(--t-ornament-inset);
+    border-left-width: var(--t-ornament-stroke);
+    border-top-width: var(--t-ornament-stroke);
+  }
+
+  .ornament-mark[data-corner="tr"] {
+    right: var(--t-ornament-inset);
+    top: var(--t-ornament-inset);
+    border-right-width: var(--t-ornament-stroke);
+    border-top-width: var(--t-ornament-stroke);
+  }
+
+  .ornament-mark[data-corner="bl"] {
+    left: var(--t-ornament-inset);
+    bottom: var(--t-ornament-inset);
+    border-left-width: var(--t-ornament-stroke);
+    border-bottom-width: var(--t-ornament-stroke);
+  }
+
+  .ornament-mark[data-corner="br"] {
+    right: var(--t-ornament-inset);
+    bottom: var(--t-ornament-inset);
+    border-right-width: var(--t-ornament-stroke);
+    border-bottom-width: var(--t-ornament-stroke);
+  }
+
+  /* --- Lamp: a status indicator; `data-lit` says whether it is on ------- */
+
+  .lamp {
+    display: inline-block;
+    flex: none;
+    width: var(--t-lamp-size);
+    height: var(--t-lamp-size);
+    border-radius: var(--t-lamp-radius);
+    background-color: var(--t-lamp-off-fill);
+    transition: all 200ms var(--t-ease);
+  }
+
+  .lamp[data-lit="true"] {
+    background-color: currentColor;
+    box-shadow: var(--t-lamp-glow);
+  }
+
+  .lamp[data-blink="true"] {
+    animation: var(--t-lamp-blink-animation);
+  }
+
+  /* --- Terminals: the connection points on a unit ---------------------- */
+
+  .terminal {
+    width: var(--t-terminal-size) !important;
+    height: var(--t-terminal-size) !important;
+    border-radius: var(--t-terminal-radius) !important;
+    background-color: var(--t-terminal-fill) !important;
+    border: var(--t-terminal-border) !important;
+    opacity: 0 !important;
+    transition: opacity 150ms var(--t-ease);
+  }
+
+  .group:hover .terminal {
+    opacity: 1 !important;
+    background-color: var(--t-terminal-fill-hover) !important;
+  }
+
+  /* --- Edge label ------------------------------------------------------ */
+
+  .edge-tag {
+    padding: 0.125rem 0.375rem;
+    border: var(--t-chip-border-width) solid currentColor;
+    border-radius: var(--t-chip-radius);
+    background-color: var(--t-edge-tag-bg);
+    font-family: var(--t-font-mono);
+    font-size: var(--t-label-size);
+    font-weight: 500;
+  }
+
   /* --- Tabs ------------------------------------------------------------ */
 
   .tab {
@@ -545,6 +707,83 @@ body {
 
 
 /* ---------------------------------------------------------------------------
+   SVG parts of the diagram. `rx` is a CSS-settable geometry property, so the
+   packet shape (round vs square) is a theme value, not a different element.
+   ------------------------------------------------------------------------ */
+
+.wire {
+  transition: stroke 240ms var(--t-ease);
+}
+
+.wire--live {
+  stroke-width: var(--t-wire-live-width);
+  filter: var(--t-wire-live-filter, none);
+}
+
+.wire--dormant {
+  stroke: var(--t-wire-dormant);
+  stroke-width: var(--t-wire-dormant-width);
+  stroke-dasharray: var(--t-wire-dormant-dash);
+}
+
+.packet-core {
+  rx: var(--t-packet-rx);
+  ry: var(--t-packet-rx);
+}
+
+.packet-halo {
+  rx: var(--t-packet-halo-rx);
+  ry: var(--t-packet-halo-rx);
+  opacity: var(--t-packet-halo-opacity);
+}
+
+/* Flow direction along a wire. */
+@keyframes flowDashForward {
+  from { stroke-dashoffset: 24; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes flowDashBackward {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: 24; }
+}
+
+.animated-edge-active {
+  stroke-dasharray: var(--t-wire-live-dash);
+  animation: flowDashForward var(--t-wire-dash-speed) linear infinite;
+}
+
+.animated-edge-active-reverse {
+  stroke-dasharray: var(--t-wire-live-dash);
+  animation: flowDashBackward var(--t-wire-dash-speed) linear infinite;
+}
+
+/* ---------------------------------------------------------------------------
+   React Flow chrome — driven entirely by theme variables.
+   ------------------------------------------------------------------------ */
+
+.react-flow__controls {
+  background-color: var(--t-raised-bg) !important;
+  border: var(--t-raised-border-width) solid var(--t-raised-border) !important;
+  border-radius: var(--t-raised-radius) !important;
+  overflow: hidden;
+  box-shadow: var(--t-raised-shadow) !important;
+}
+
+.react-flow__controls-button {
+  background-color: var(--t-raised-bg) !important;
+  border-bottom: var(--t-seam-width) solid var(--t-seam) !important;
+  fill: var(--t-text-muted) !important;
+  color: var(--t-text-muted) !important;
+}
+
+.react-flow__controls-button:hover {
+  background-color: var(--t-hover-fill) !important;
+  fill: var(--t-accent) !important;
+  color: var(--t-accent) !important;
+}
+
+/* ---------------------------------------------------------------------------
    The mobile drawer slides in from the edge it is anchored to, so the reader
    sees where it came from and where dismissing it sends it back.
    ------------------------------------------------------------------------ */
@@ -582,6 +821,9 @@ body {
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
+
+  /* The travelling packet is an <animateMotion>, not a CSS animation — the
+     rules above cannot reach it, so the component drops it entirely. */
 }
 
 /* --- Scrollbars --------------------------------------------------------- */

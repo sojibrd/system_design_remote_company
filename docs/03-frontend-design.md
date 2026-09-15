@@ -2,7 +2,7 @@
 
 *দিন ০২৯–০৪২ · ছয় ধাপ · autocomplete · news feed · file upload*
 
-রিমোট frontend পদে **সবচেয়ে সম্ভাব্য design প্রশ্ন** এটাই — component, state কোথায়, ডেটা আনা ও cache, optimistic update, accessibility। আর `system_design`-এর ২৫টা ডকের একটাও এটা নিয়ে নয়। ভালো খবর: আপনি এটা রোজ করেন — theme contract, server-only `content.ts`, এক hook-এ আটকানো `localStorage`, সবই frontend design-এর সিদ্ধান্ত। বাকি শুধু **এভাবে গুছিয়ে বলা।** 🧠 (The obstacle · Skill stacking)
+রিমোট frontend পদে **সবচেয়ে সম্ভাব্য design প্রশ্ন** এটাই — component, state কোথায়, ডেটা আনা ও cache, optimistic update, accessibility। আর এই সাইটের ২৫টা ডকের একটাও এটা নিয়ে নয়। ভালো খবর: আপনি এটা রোজ করেন — theme contract, server-only `plan.ts`, এক hook-এ আটকানো `localStorage`, সবই frontend design-এর সিদ্ধান্ত। বাকি শুধু **এভাবে গুছিয়ে বলা।** 🧠 (The obstacle · Skill stacking)
 
 তিনটা UI, প্রতিটা ছয় ধাপে লেখা, তারপর মুখে। শেষ দিনে এলোমেলো তুলে। 🧠 (Chunk the subject · Interleaving)
 

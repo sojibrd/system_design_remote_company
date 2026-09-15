@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
-import { docHref, findDoc, findSim, simHref } from "./sources";
+import { findGuideDoc } from "./guide";
+import { findSim, simHref } from "./sources";
 
 /**
  * server-only — `fs` দিয়ে build-এর সময় `docs/` পড়ে। client component এখান থেকে
@@ -14,7 +15,7 @@ const DOCS_DIR = path.join(process.cwd(), "docs");
 const RULES_FILE = "00-rules.md";
 const DOC_RE = /^(\d\d)-(.+)\.md$/;
 
-/** কাজের লেখায় `(ডক ১৩)` বা `(sim url-shortener · functional)` — কোথায় পড়বেন বা চালাবেন */
+/** কাজের লেখায় `(ডক ১৩)` বা `(sim url-shortener · functional)` — এই সাইটের কোন ডক পড়বেন বা কোন simulation চালাবেন */
 export type TaskSource =
   | { kind: "doc"; num: number; code: string; title: string; href: string }
   | { kind: "sim"; id: string; name: string; level: string; href: string };
@@ -113,11 +114,11 @@ function parseSources(dayCode: string, raw: string): TaskSource[] {
 
   for (const group of raw.matchAll(DOC_GROUP_RE)) {
     for (const match of group[1].matchAll(DOC_NUM_RE)) {
-      const doc = findDoc(Number(toAsciiDigits(match[1])));
+      const doc = findGuideDoc(Number(toAsciiDigits(match[1])));
       /* ভুল নম্বর build-এই ধরা পড়ুক — সাইটে ভাঙা লিংক নয় */
-      if (!doc) throw new Error(`docs: দিন ${dayCode}-এ ${group[0]} — এই নম্বরের ডক system_design-এ নেই`);
+      if (!doc) throw new Error(`docs: দিন ${dayCode}-এ ${group[0]} — এই নম্বরের ডক guide/-এ নেই`);
       if (sources.some((item) => item.kind === "doc" && item.num === doc.num)) continue;
-      sources.push({ kind: "doc", num: doc.num, code: doc.code, title: doc.title, href: docHref(doc) });
+      sources.push({ kind: "doc", num: doc.num, code: doc.code, title: doc.title, href: `/doc/${doc.code}/` });
     }
   }
 

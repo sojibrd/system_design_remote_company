@@ -10,7 +10,7 @@
 
 ### দিন ০০১ · ছয় সেকশনের ছাঁচ
 
-- [ ] ১০′ `system_design/designs/url-shortener-small-postgres.md` খুলে ছয় সেকশনের নাম **ইংরেজিতে** একটা কার্ডে — What I built → Scale → Decisions → Left out → Architecture → Where it breaks 🔁 🧠 (Chunk the subject · Trunk based knowledge)
+- [ ] ১০′ [নিয়মের পাতার](/rules/) "design doc — ছয় সেকশন" খুলে ছয় সেকশনের নাম **ইংরেজিতে** একটা কার্ডে — What I built → Scale → Decisions → Left out → Architecture → Where it breaks 🔁 🧠 (Chunk the subject · Trunk based knowledge)
 
 > **দিন শেষে:** ছয় সেকশনের কার্ড আছে?
 
