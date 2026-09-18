@@ -6,7 +6,7 @@ import { toBnDigits } from "../lib/dates";
 import { SITE } from "../lib/site";
 import { useMounted, useProgress } from "../hooks/useProgress";
 import ProgressReadout from "./ProgressReadout";
-import { PanelLeftClose, X } from "./icons";
+import { PanelLeftClose, RefreshCw, X } from "./icons";
 
 const PAGES = [
   { href: "/", label: "আজ" },
@@ -77,6 +77,14 @@ export default function Sidebar({
         </Link>
 
         <div className="flex shrink-0 items-center gap-1.5">
+          <Link
+            href="/sync/"
+            onClick={onClose}
+            className="control control--quiet p-1.5"
+            aria-label="একাধিক ডিভাইসে সিঙ্ক"
+          >
+            <RefreshCw size={14} />
+          </Link>
           {onClose && (
             <button type="button" onClick={onClose} className="control control--quiet p-1.5" aria-label="সাইডবার বন্ধ করুন">
               <X />

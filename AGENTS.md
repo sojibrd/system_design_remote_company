@@ -11,6 +11,7 @@
 - **design doc-এর লেখা এই repo-গুলোয় নয়** — প্রজেক্টের নিজের repo-তে (`srdtube`-এর `DESIGN.md`); `designs/` নেই, ছয় সেকশনের ছাঁচ `docs/00-rules.md`-এ। সাইটে নোটের ঘর নেই, ইচ্ছাকৃত — এক লেখা দুই জায়গায় রাখা নয়।
 - 🧠 নাম → `app/lib/principles.ts`-এ `learning_to_learn`-এর পাঁচ ডকের **সব** বিষয়, system design-এর মাপে এক লাইন; নতুন নাম লিখলে তিন repo-তেই যোগ।
 - Progress চার key (`start`, `task`, `check`, `review`) — একমাত্র `app/hooks/useProgress.ts` দিয়ে। `app/lib/plan.ts` server-only।
+- **Cross-device sync (২০২৬-০৯-১৮, তিন repo-তেই)** — localStorage সবসময় primary (offline-এ পুরোপুরি কাজ করে); sync key বসানো থাকলে `app/hooks/useSync.ts` background-এ একটা শেয়ার্ড Supabase project-এ push/pull করে (`app/lib/supabase.ts`, স্কিমা `supabase/schema.sql`)। Conflict resolution: পুরো blob-এর last-write-wins, `<prefix>:v1:meta`-এর `updatedAt` দিয়ে। Sync key auth-less — random UUID, `sync:v1:key` (prefix ছাড়া, origin-শেয়ার্ড, workspace-এর বাকি সাইটের সাথেও একই key কাজ করে)। GitHub Actions build-এ `NEXT_PUBLIC_SUPABASE_URL`/`NEXT_PUBLIC_SUPABASE_ANON_KEY` repo secret লাগে।
 - **Theme contract অলঙ্ঘনীয়**, সাইট **dark-only**। canvas-এর role আর token সহ এটাই workspace-এর পূর্ণ কপি — `nextjs-pages` skill এখান থেকে কপি করে। plan-এর তথ্য বদলালে ক্রম: `brainstorming/ASSUMPTIONS.md` → `brainstorming/` → ৬ মাসের plan → এই ফোল্ডারগুলো; গ্লোবালে সাইটের দিন = plan-এর দিন − ৭।
 
 <!-- BEGIN:nextjs-agent-rules -->

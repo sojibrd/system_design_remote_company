@@ -2,6 +2,7 @@
 
 import { useCallback, useSyncExternalStore } from "react";
 import { useLocalStorage } from "./useLocalStorage";
+import { useProgressSync, type SyncStatus } from "./useSync";
 import { REVIEW_DAYS, isISODate, type ReviewState } from "../lib/dates";
 import { SITE } from "../lib/site";
 
@@ -15,6 +16,7 @@ import { SITE } from "../lib/site";
  *   <prefix>:v1:task    → { [taskId]: "YYYY-MM-DD" }   কাজ শেষের স্থানীয় তারিখ
  *   <prefix>:v1:check   → { ["d007" | "b1"]: "yes" | "no" }   দিন-শেষ / ব্লক-শেষ
  *   <prefix>:v1:review  → { [taskId]: ReviewState }
+ *   <prefix>:v1:meta    → { updatedAt: ISOString }   সর্বশেষ sync-এর timestamp
  *
  * নোটের key নেই, ইচ্ছাকৃত — design doc-এর লেখা প্রজেক্টের নিজের repo-তে (`srdtube`-এর
  * `DESIGN.md`), সাইটে দ্বিতীয় কপি রাখলে দুই জায়গা আলাদা হয়ে যায়।
@@ -26,12 +28,14 @@ const START_KEY = `${SITE.storagePrefix}:v1:start`;
 const TASK_KEY = `${SITE.storagePrefix}:v1:task`;
 const CHECK_KEY = `${SITE.storagePrefix}:v1:check`;
 const REVIEW_KEY = `${SITE.storagePrefix}:v1:review`;
+const META_KEY = `${SITE.storagePrefix}:v1:meta`;
 
 export type Answer = "yes" | "no";
 
 type DoneMap = Record<string, string>;
 type Answers = Record<string, Answer>;
 type Reviews = Record<string, ReviewState>;
+type Meta = { updatedAt: string };
 
 const neverChanges = () => () => {};
 
@@ -49,6 +53,14 @@ export function useProgress() {
   const [tasks, setTasks] = useLocalStorage<DoneMap>(TASK_KEY, {});
   const [answers, setAnswers] = useLocalStorage<Answers>(CHECK_KEY, {});
   const [reviews, setReviews] = useLocalStorage<Reviews>(REVIEW_KEY, {});
+  const [meta, setMeta] = useLocalStorage<Meta>(META_KEY, { updatedAt: "" });
+
+  const sync = useProgressSync(
+    { start: startRaw, tasks, answers, reviews },
+    { start: setStartRaw, tasks: setTasks, answers: setAnswers, reviews: setReviews },
+    meta,
+    setMeta,
+  );
 
   /** বসানো না থাকলে বা নষ্ট হলে `null` */
   const start = isISODate(startRaw) ? startRaw : null;
@@ -138,5 +150,8 @@ export function useProgress() {
     reviewState,
     remembered,
     stuck,
+    sync,
   };
 }
+
+export type { SyncStatus };
